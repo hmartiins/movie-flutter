@@ -4,7 +4,6 @@ import 'package:movie/models/movies_model.dart';
 import 'package:movie/service/dio_service_imp.dart';
 import 'package:movie/controllers/movie_controller.dart';
 import 'package:movie/repositories/movies_repository_imp.dart';
-import 'package:movie/utils/apis.utils.dart';
 import 'package:movie/widgets/custom_list_card_widget.dart';
 
 class HomePage extends StatefulWidget {
