@@ -36,7 +36,7 @@ class Movies extends Equatable {
   final int page;
   final String posterPath;
   final bool public;
-  final List<Result> results;
+  final List<Movie> results;
   final int revenue;
   final int runtime;
   final String? sortBy;
@@ -59,7 +59,7 @@ class Movies extends Equatable {
         posterPath: json["poster_path"],
         public: json["public"],
         results:
-            List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+            List<Movie>.from(json["results"].map((x) => Movie.fromJson(x))),
         revenue: json["revenue"],
         runtime: json["runtime"],
         sortBy: json["sort_by"],
@@ -103,7 +103,7 @@ class Movies extends Equatable {
     int? page,
     String? posterPath,
     bool? public,
-    List<Result>? results,
+    List<Movie>? results,
     int? revenue,
     int? runtime,
     String? sortBy,

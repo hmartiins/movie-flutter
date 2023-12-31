@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class Result extends Equatable {
-  const Result({
+class Movie extends Equatable {
+  const Movie({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -35,7 +35,7 @@ class Result extends Equatable {
   final double voteAverage;
   final int voteCount;
 
-  factory Result.fromJson(Map<String?, dynamic> json) => Result(
+  factory Movie.fromJson(Map<String?, dynamic> json) => Movie(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
@@ -71,7 +71,7 @@ class Result extends Equatable {
         "vote_count": voteCount,
       };
 
-  Result copyWith({
+  Movie copyWith({
     bool? adult,
     String? backdropPath,
     List<int>? genreIds,
@@ -88,7 +88,7 @@ class Result extends Equatable {
     double? voteAverage,
     int? voteCount,
   }) {
-    return Result(
+    return Movie(
       adult: adult ?? this.adult,
       backdropPath: backdropPath ?? this.backdropPath,
       genreIds: genreIds ?? this.genreIds,
@@ -109,7 +109,7 @@ class Result extends Equatable {
 
   @override
   String toString() {
-    return 'Result(adult: $adult, backdropPath: $backdropPath, genreIds: $genreIds, id: $id, mediaType: $mediaType, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, title: $title, video: $video, voteAverage: $voteAverage, voteCount:$voteCount)';
+    return 'Movie(adult: $adult, backdropPath: $backdropPath, genreIds: $genreIds, id: $id, mediaType: $mediaType, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, title: $title, video: $video, voteAverage: $voteAverage, voteCount:$voteCount)';
   }
 
   @override
