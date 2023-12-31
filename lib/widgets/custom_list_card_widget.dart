@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:movie/models/result_model.dart';
 import 'package:movie/utils/apis.utils.dart';
@@ -14,11 +12,23 @@ class CustomListCardWidget extends StatelessWidget {
       height: 200,
       decoration: const BoxDecoration(
         color: Colors.black54,
+        borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: Row(
         children: [
-          Image.network(
-            API.REQUEST_IMG(movie.posterPath),
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(16),
+              bottomLeft: Radius.circular(16),
+            ),
+            child: Image.network(
+              API.REQUEST_IMG(movie.posterPath),
+              loadingBuilder: (_, child, progress) {
+                if (progress == null) return child;
+
+                return const CircularProgressIndicator.adaptive();
+              },
+            ),
           ),
           Expanded(
             child: Padding(
