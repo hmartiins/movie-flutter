@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:movie/decorators/movies_cache_repository_decorator.dart';
 import 'package:movie/models/movies_model.dart';
 import 'package:movie/service/dio_service_imp.dart';
 import 'package:movie/controllers/movie_controller.dart';
@@ -15,8 +16,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final MovieController _controller = MovieController(
-    MoviesRepositoryImp(
-      dioService: DioServiceImp(),
+    MoviesCacheRepositoryDecorator(
+      moviesRepository: MoviesRepositoryImp(
+        dioService: DioServiceImp(),
+      ),
     ),
   );
 
