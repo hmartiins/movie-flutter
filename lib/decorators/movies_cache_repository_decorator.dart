@@ -10,13 +10,11 @@ class MoviesCacheRepositoryDecorator extends MoviesRepositoryDecorator {
   @override
   Future<Movies> getMovies() async {
     try {
-      print("try");
       Movies movies = await super.getMovies();
       _saveInCache(movies);
 
       return movies;
     } catch (e) {
-      print("catch");
       return await _getInCache();
     }
   }
@@ -34,8 +32,6 @@ class MoviesCacheRepositoryDecorator extends MoviesRepositoryDecorator {
 
     var json = jsonDecode(moviesJsonString);
     var movies = Movies.fromJson(json);
-
-    print(movies);
 
     return movies;
   }
