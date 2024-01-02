@@ -10,8 +10,10 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(movie.title,
-            style: const TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(
+          movie.title,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -45,12 +47,14 @@ class DetailsPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        movie.title,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
+                      Flexible(
+                        child: Text(
+                          movie.title,
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 14),
@@ -94,6 +98,47 @@ class DetailsPage extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 16),
+                  const Divider(),
+                  const SizedBox(height: 16),
+                  const Text(
+                    "Gêneros",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: movie.genreIds
+                        .map(
+                          (e) => Padding(
+                            padding: const EdgeInsets.only(right: 16.0),
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                color: Colors.black87,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
+                                child: Text(
+                                  Movie.getGenre(e),
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
                   ),
                   const SizedBox(height: 16),
                   const Divider(),
